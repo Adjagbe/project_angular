@@ -1,0 +1,31 @@
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #ccc;
+    border-top-color: #f00;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .spinner1 {
+    animation: spin1 1s linear infinite;
+  }
+  @keyframes spin1 {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .spinner2 {
+    animation: spin2 1s linear infinite;
+  }
+  @keyframes spin2 {
+    from { transform: rotate3d(0, 1, 0,0deg); }
+    to { transform: rotate3d(0, 1, 0, 360deg); }
+  }
+span{
+    font-size: 20px;
+}
