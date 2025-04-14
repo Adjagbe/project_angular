@@ -1,18 +1,24 @@
 
-
-<div class="d-flex justify-content-center align-items-center">
+<app-navbar></app-navbar>
+<nav  style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#" class="text-red">Tableau de bord </a></li>
+    <li class="breadcrumb-item active" aria-current="page">Profil</li>
+  </ol>
+</nav>
+<div class="d-flex justify-content-center align-items-center pb-5">
   <div class="container  row  mt-5">
     <div class="col-lg-5 mb-5">
-      <div  class="card shadow border border-0 col-lg-9 ">
-        <img style="height: 8rem;" class="rounded-top " [src]="imageback" [alt]="title">
+      <div *ngFor="let login of Logins" class="card shadow-sm border border-0 col-lg-9 ">
+        <img style="height: 8rem;" class="rounded-top " [src]="login.imageback" [alt]="login.title">
         <div class=" d-flex align-items-center flex-column ">
           <div style=" width: 130px; height: 130px;" class="rounded-circle profile-img border border-4-white">
-            <img  class="rounded-circle  w-100 h-100 object-fit-cover" [src]="imgprofil" [alt]="title">
+            <img  class="rounded-circle  w-100 h-100 object-fit-cover" [src]="login.imgprofil" [alt]="login.title">
           </div>
           <div class="card-body text-center bottom-5">
-            <h2>{{ title }}</h2>
-            <p><a href="#" class="text-pink text-decoration-none"> {{email}} </a></p>
-            <p class="card-text"> {{description}} </p>
+            <h2>{{ showLogin.title }}</h2>
+            <p><a href="#" class="text-pink text-decoration-none"> {{showLogin.email}} </a></p>
+            <p class="card-text"> {{showLogin.description}} </p>
             <hr  class="">
             <div class="container text-center reseaux">
               <div class="row">
@@ -51,56 +57,58 @@
       </div>
     </div>
     <div class="col-lg-7 " >
-     <div class=" card shadow border border-0 p-4 ">
+      
+     <div class=" card shadow-sm border border-0 p-4 ">
         <h4>Modifier mon profile</h4>
-       <form class="mt-3">
+       <form novalidate="novalidate" class="mt-3" >
+        
         <div class="row">
           <div class="mb-3 col ">
             <label for="exampleFormControlInput1" class="form-label">Compagnie</label>
-            <input type="email" class="form-control" disabled value={{compagnie}}>
+            <input type="email" class="form-control" [(ngModel)]="showLogin.compagnie" name="compagnie"  disabled >
           </div>
           <div class="mb-3 col ">
             <label for="exampleFormControlInput1" class="form-label">Pseudo</label>
-            <input type="text" class="form-control"  value={{title}}>
+            <input type="text" class="form-control" name="title" [(ngModel)]="showLogin.title"  >
           </div>
           <div class="mb-3 col ">
             <label for="exampleFormControlInput1" class="form-label">Email </label>
-            <input type="email" class="form-control" value={{email}}>
+            <input type="email" class="form-control" name="email" [(ngModel)]="showLogin.email" >
           </div>
         </div>
         <div class="row">
           <div class="mb-3 col ">
             <label for="exampleFormControlInput1" class="form-label">Nom</label>
-            <input type="text" class="form-control"  value={{nom}}>
+            <input type="text" class="form-control" name="nom" [(ngModel)]="showLogin.nom"  >
           </div>
           <div class="mb-3 col ">
             <label for="exampleFormControlInput1" class="form-label">Prénom</label>
-            <input type="text" class="form-control"  value={{prenom}}>
+            <input type="text" class="form-control" [(ngModel)]="showLogin.prenom" name="prenom"  >
           </div>
         </div>
         <div class="mb-3 col ">
           <label for="exampleFormControlInput1" class="form-label">Lieu d'habitation</label>
-          <input type="text" class="form-control"  value={{lieu}}>
+          <input type="text" class="form-control" name="lieu" [(ngModel)]="showLogin.lieu" >
         </div>
         <div class="row">
           <div class="mb-3 col ">
             <label for="exampleFormControlInput1" class="form-label">Ville</label>
-            <input type="text" class="form-control"  value={{ville}}>
+            <input type="text" class="form-control" name="ville" [(ngModel)]="showLogin.ville"  >
           </div>
           <div class="mb-3 col ">
             <label for="exampleFormControlInput1" class="form-label">Pays</label>
-            <input type="text" class="form-control"  value={{pays}}>
+            <input type="text" class="form-control" name="pays" [(ngModel)]="showLogin.pays"  >
           </div>
           <div class="mb-3 col ">
             <label for="exampleFormControlInput1" class="form-label">Code </label>
-            <input type="number" class="form-control" value={{code_poste}}>
+            <input type="number" class="form-control" [(ngModel)]="showLogin.code_poste" name="code" >
           </div>
         </div>
         <div class="mb-3 col">
           <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" value={{description}} rows="3"></textarea>
+          <textarea class="form-control" name="description" [(ngModel)]="showLogin.description" id="exampleFormControlTextarea1"  rows="3"></textarea>
         </div>
-        <button style="height: 40px;"  class="btn btn-pink  rounded">
+        <button (click)="updateLogin()" style="height: 40px;"  class="btn btn-pink  rounded">
           <svg class="pr-5" style="color: white;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
             <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
             <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>

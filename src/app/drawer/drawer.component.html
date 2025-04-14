@@ -1,27 +1,7 @@
-<div class="" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+<div style="height: 100vh;" class="d-flex justify-content-center align-items-center text-center">
 
-    </div>
-    <div class="spinner"></div>
-    
-    <svg class="spinner1" width="50" height="50" viewBox="0 0 50 50">
-      <polygon points="25,0 30,15 45,18 34,30 37,45 25,38 13,45 16,30 5,18 20,15" fill="#f00"/>
-    </svg>
-    <span>Aurore</span><svg  class="spinner2"   width="28" height="28" viewBox="0 0 64 64"  xml:space="preserve"><g><linearGradient id="a" x1="8.131" x2="55.869" y1="32.001" y2="32.001" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ffa68d"></stop><stop offset="1" stop-color="#fd3a84"></stop></linearGradient><path fill="url(#a)" d="M55.87 24.133a6.648 6.648 0 0 1-1.534 4.224 6.568 6.568 0 0 1-3.867 2.278l-33.736 6.3a4.296 4.296 0 0 0 .13 8.452l1.94.301v-3.512a1 1 0 0 1 2 0V46l4.836.75V38.48a1 1 0 0 1 2 0v8.586c.648.078 4.654.971 5.382 1.102v-4.335a1 1 0 0 1 2 0v4.755c.599.144 6.677 1.309 7.047 1.616V43.2a1 1 0 0 1 2 0v10.213a3.642 3.642 0 0 1-3.018 3.636l-16.66 2.937a1 1 0 0 1-.347-1.97l5.798-1.022v-3.091a1 1 0 0 1 2 0v2.738l8.861-1.562a1.658 1.658 0 0 0 .052-3.246c-2.404-.475-13.67-2.966-15.882-3.177v5.566a1 1 0 0 1-2 0v-5.877l-6.316-.98a6.284 6.284 0 0 1-5.32-6.213V24.14a1 1 0 0 1 2 0v12.436c1.348-1.503 4.099-1.793 5.987-2.141V28.88a1 1 0 0 1 2 0v5.181l5.987-1.118v-4.348a1 1 0 0 1 2 0v3.974l5.958-1.112.03-11.104a1 1 0 0 1 2 .004l-.03 10.726 6.016-1.123v-7.285a1 1 0 0 1 2 0v6.912l4.917-.919a4.618 4.618 0 0 0 .163-9.044l-41.352-9.29a1 1 0 1 1 .438-1.95l5.843 1.312V5.565a1 1 0 1 1 2 0v4.582l5.138 1.154V5a1 1 0 0 1 2 0v6.75l5.136 1.154V8.775a1 1 0 0 1 2 0v4.578l5.137 1.154V7.658a1 1 0 0 1 2 0v7.298l3.45.775v-3.856a1 1 0 0 1 2 0v4.306l3.448.774V9.74a1 1 0 0 1 2 0v7.665l1.201.27a6.601 6.601 0 0 1 3.166 1.73V6.552a1 1 0 0 1 2 0zm-33.54 2.415a1 1 0 0 0 2 0v-3a1 1 0 0 0-2 0zm1-6.548a1 1 0 0 0 1-1v-3a1 1 0 0 0-2 0v3a1 1 0 0 0 1 1zm-6.1 3.548v-6.384a1 1 0 0 0-2 0v6.384a1 1 0 0 0 2 0zm10.98 1.594a1 1 0 0 0 1-1v-5.179a1 1 0 0 0-2 0v5.179a1 1 0 0 0 1 1zm6.987 11.108v3.356a1 1 0 1 0 2 0V36.25a1 1 0 0 0-2 0zm7.87-2.678a1 1 0 0 0-1 1v3.356a1 1 0 0 0 2 0v-3.356a1 1 0 0 0-1-1z" opacity="1" data-original="url(#a)"></path></g></svg>
-    <div class="offcanvas-body">
-      <div>
-        Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
-      </div>
-      <div class="dropdown mt-3">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-          Dropdown button
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Action</a></li>
-          <li><a class="dropdown-item" href="#">Another action</a></li>
-          <li><a class="dropdown-item" href="#">Something else here</a></li>
-        </ul>
-      </div>
-    </div>
+  <div *ngFor="let login of Logins">
+    <h3  > Bienvenue ! sur ton Tableau appuie sur le boutton<br/> commencer, pour modifier tes informations</h3>
+    <a class="btn btn-sm btn-pink" routerLink="login/{{login.id}}">Commencer</a>
   </div>
+</div>

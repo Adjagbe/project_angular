@@ -1,8 +1,8 @@
 .nav-link{
-    color: white;
+    color: #383838;
 }
 .form-control:focus{
-    outline: dashed 1px #f898a8 ;
+    outline: dashed 1px #e20328;
    box-shadow: none;
 }
 
@@ -11,7 +11,7 @@
     left: 250px;
 }
 .active{
-   color: rgb(56, 56, 56);
+   color: #e20328 ;
 }
 
 @media  (orientation: portrait) and (max-width:1023px) {
