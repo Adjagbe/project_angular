@@ -7,6 +7,7 @@ export const LOGIN_DATA : Login[] =[
     compagnie : 'LVS Studio',
     nom : 'Arigano',
     prenom : 'Marina lauraine',
+    poste:'Developpeur fullsatck',
     lieu : `cocody abatta, Abidjan, Côte d'ivoire`,
     ville : 'Abidjan',
     pays : `Côte d'ivoire`,
@@ -14,6 +15,6 @@ export const LOGIN_DATA : Login[] =[
     email : 'contact@archibald.com',
     imageback :'https://oursonweb.fr/wp-content/uploads/2021/07/6-contenus-qui-marchent-reseaux-sociaux.jpg',
     imgprofil : 'https://www.naturalsaramaya.com/wp-content/uploads/2020/01/museuniform-instagram-femme-noire.jpg',
-    description : ` But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete .Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque  `
+    description : ` But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete .Sed ut perspiciatis unde omnis iste natus   `
 }
 ]

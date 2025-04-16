@@ -12,4 +12,5 @@ export class Login {
   ville ! : string;
   pays! : string;
   code_poste ! :string;
+  poste!:string
 }

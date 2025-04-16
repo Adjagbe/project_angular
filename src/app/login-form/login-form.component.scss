@@ -29,5 +29,27 @@ div svg{
      outline: dashed 1px #e20328 ;
     box-shadow: none;
 }
+.label-user-update{
+    position: absolute;
+   right: 0px;
+}
+.icon_photo{
+    position: absolute;
+    bottom: 35px;
+    left: 50px;
+    display:none;
+}
+.container-parent{
+    overflow: hidden;
+}
+
+.label-user-update:hover {
+    background-color: rgba(0, 0, 0, 0.333);
+    cursor: pointer;
+}
+
+.label-user-update:hover .icon_photo {
+    display: block;
+}
 
 

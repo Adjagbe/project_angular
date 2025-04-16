@@ -50,11 +50,5 @@ export class DrawerComponent {
         }
       }
     
-      updateLogin() : void {
-        this.Logins = this.Logins.filter((login) => login.id !== this.showLogin.id);
-        this.Logins.push(this.showLogin);
-        localStorage.setItem('loginData', JSON.stringify(this.Logins));
-        this.router.navigate(['/user:id']);
-      }
-  
+      
 }
