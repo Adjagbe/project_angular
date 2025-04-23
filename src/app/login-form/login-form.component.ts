@@ -25,16 +25,34 @@ export class LoginFormComponent implements OnInit {
   errorMessage: string | null = null;
   maxSizeInMB = 1; // 1 Mo
 
-  selectedFile: File | null = null;
+  selectedFile: string | null = null;
   imagePreview: string | ArrayBuffer | null = null;
 
+  fileUrl: string | null = null;
+  isImage: boolean = false;
+
+  newPhoto: Login = new Login()
+  fileUrl2: File | null = null;
 
 
   ngOnInit(): void {
+
     this.id = Number(this.activatedRoute.snapshot.paramMap.get('id'))
     if(this.id){
       this.showLogin = this.LoginService.getLoginsById(this.id);
     }
+
+    if(isPlatformBrowser(this.platformId)){
+
+      const savedLogin = this.Logins.find(login => login.id === this.showLogin.id);
+      if (savedLogin && savedLogin.imgprofil) {
+        this.fileUrl = `data:image/jpeg;base64,${savedLogin.imgprofil}`;
+        this.isImage = true;
+      } else {
+        this.isImage = false;
+      }
+    }
+
    
   }
 
@@ -46,6 +64,9 @@ export class LoginFormComponent implements OnInit {
       if(localData!=null){
         this.Logins = JSON.parse(localData);
       }
+
+      
+
     }
   }
 
@@ -83,10 +104,35 @@ export class LoginFormComponent implements OnInit {
 
   }
 
+  updatePhoto() : void{
+
+    if (!this.selectedFile) {
+      this.errorMessage = "Aucune image sélectionnée.";
+      return;
+    }
+
+    const data = {
+      ...this.showLogin, //garde les autres donnée du formulaire 
+      imgprofil: this.selectedFile,
+    }
+
+    this.Logins = this.Logins.filter((login) => login.id !== this.showLogin.id);
+    this.Logins.push(data);
+
+    localStorage.setItem('loginData', JSON.stringify(this.Logins));
+
+
+  }
+
   updateLogin() : void {
     this.Logins = this.Logins.filter((login) => login.id !== this.showLogin.id);
     this.Logins.push(this.showLogin);
     localStorage.setItem('loginData', JSON.stringify(this.Logins));
-    this.router.navigate(['/login']);
+
   }
+
+  convertHexToBase64(hexString: string): string {
+    const raw = hexString.match(/.{1,2}/g)?.map(byte => String.fromCharCode(parseInt(byte, 16))).join('') || '';
+    return btoa(raw);
+  } //fonction pour convertir une chaine hexadécimale en base64
 }

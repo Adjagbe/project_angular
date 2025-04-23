@@ -28,7 +28,8 @@
               <div >
                 <div style=" width: 130px; height: 130px;"  class="rounded-circle profile-img border border-4-white ">
                   <img *ngIf="imagePreview"  class="rounded-circle  w-100 h-100 object-fit-cover" [src]="imagePreview"><!-- affiche l'image selectionner -->
-                  <img *ngIf="!imagePreview && showLogin.imgprofil"  class="rounded-circle  w-100 h-100 object-fit-cover" [src]="showLogin.imgprofil" [alt]="showLogin.title">
+                  <img *ngIf="!imagePreview && isImage"  class="rounded-circle  w-100 h-100 object-fit-cover" [src]="fileUrl" [alt]="showLogin.title"> <!-- image en localStorage chargé par l'utilisateur-->
+                  <img *ngIf="!isImage && !imagePreview"  class="rounded-circle  w-100 h-100 object-fit-cover" src="../../assets/image.jpg" [alt]="showLogin.title">
                   <label  class="w-100 h-100 z-1 label-user-update  rounded-circle" for="upload-porfile-picture"></label>
                   <!-- icon appareil photo -->
                   <p class=" z-1 icon_photo">
@@ -40,7 +41,11 @@
                 </div>
                 
               </div>
+              <div *ngIf="imagePreview " >
+                <button (click)="updatePhoto()" class="btn btn-pink btn-update_photo">Sauvegarder</button>
+              </div>
             </div>
+           
 
             <div class="card-body text-center bottom-5">
               <h3>{{ showLogin.prenom }} {{showLogin.nom}}</h3>

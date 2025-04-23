@@ -14,7 +14,7 @@ export const LOGIN_DATA : Login[] =[
     code_poste : `225`,
     email : 'contact@archibald.com',
     imageback :'https://oursonweb.fr/wp-content/uploads/2021/07/6-contenus-qui-marchent-reseaux-sociaux.jpg',
-    imgprofil : 'https://www.naturalsaramaya.com/wp-content/uploads/2020/01/museuniform-instagram-femme-noire.jpg',
+    imgprofil : '',
     description : ` But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete .Sed ut perspiciatis unde omnis iste natus   `
 }
 ]

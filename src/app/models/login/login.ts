@@ -1,7 +1,7 @@
 export class Login {
     id!:number
     imageback! : string;
-  imgprofil! : string;
+  imgprofil! : string ;
   title!: string;
   email! : string;
   description! : string;
