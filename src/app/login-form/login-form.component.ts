@@ -120,6 +120,7 @@ export class LoginFormComponent implements OnInit {
     this.Logins.push(data);
 
     localStorage.setItem('loginData', JSON.stringify(this.Logins));
+    window.location.reload();
 
 
   }
@@ -135,4 +136,6 @@ export class LoginFormComponent implements OnInit {
     const raw = hexString.match(/.{1,2}/g)?.map(byte => String.fromCharCode(parseInt(byte, 16))).join('') || '';
     return btoa(raw);
   } //fonction pour convertir une chaine hexadécimale en base64
+
+  
 }
